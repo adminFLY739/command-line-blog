@@ -5,7 +5,6 @@ import com.fly.entity.User;
 import com.fly.page.BasePage;
 import com.fly.util.ClearScreen;
 
-import java.util.Objects;
 import java.util.Scanner;
 
 public class Detail extends BasePage {
@@ -34,7 +33,7 @@ public class Detail extends BasePage {
             String temp = scanner.nextLine();
             System.out.println("正在返回文章列表！");
             Thread.sleep(1000);
-            ListOfArticle list = new ListOfArticle();
+            ListDetail list = new ListDetail();
             list.printPage(currentUser);
         } catch (InterruptedException e) {
             System.out.println(e.getMessage());
