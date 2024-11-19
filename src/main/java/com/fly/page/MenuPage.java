@@ -15,7 +15,7 @@ public class MenuPage extends BasePage {
         try {
             ClearScreen.clear();
             System.out.println("---------------------------------");
-            System.out.println("----       Java博客系统       ----");
+            System.out.println("----       Java博客系统🤓    ----");
             System.out.println("---------------------------------");
             if (currentUser.getUsername() != null) {
                 System.out.println("当前登录用户：" + currentUser.getUsername());
@@ -23,11 +23,11 @@ public class MenuPage extends BasePage {
                 System.out.println("当前无用户登录");
             }
             System.out.println();
-            System.out.println("1. 登录");
-            System.out.println("2. 注册");
-            System.out.println("3. 创作管理");
-            System.out.println("4. 文章浏览");
-            System.out.println("5. 退出系统");
+            System.out.println("1️⃣. 登录");
+            System.out.println("2️⃣. 注册");
+            System.out.println("3️⃣. 创作管理");
+            System.out.println("4️⃣. 文章浏览");
+            System.out.println("5️⃣. 退出系统");
             System.out.println("请输入您的操作: ");
             Scanner scanner = new Scanner(System.in);
             String choice = scanner.nextLine();
@@ -45,7 +45,7 @@ public class MenuPage extends BasePage {
                 viewPage.printPage(currentUser);
             } else if (Objects.equals(choice, "5")) {
                 System.out.println("感谢使用！");
-                Thread.sleep(1000);
+                System.exit(0);
             } else {
                 System.out.println("请重新输入正确的序号！");
                 Thread.sleep(1000);

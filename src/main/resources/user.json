@@ -1,11 +1,16 @@
 [
   {
     "username": "sfy",
-    "password": "1",
-    "email": "1"
+    "password": "123",
+    "email": "123"
   },
   {
     "username": "123",
+    "password": "123",
+    "email": "123"
+  },
+  {
+    "username": "人机",
     "password": "123",
     "email": "123"
   }

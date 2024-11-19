@@ -28,7 +28,9 @@ public class ListUpdate extends BasePage {
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             FileReader reader = new FileReader(filePath);
             Article[] articles = gson.fromJson(reader, Article[].class);
-            if (articles == null || articles.length == 0) {
+            List<Article> filteredArticles = Arrays.stream(articles).filter(article -> Objects.equals(article.getAuthor(), currentUser.getUsername())).collect(Collectors.toList());
+            Article[] filteredArray = filteredArticles.toArray(new Article[0]);
+            if (filteredArray == null || filteredArray.length == 0) {
                 System.out.println();
                 System.out.println("当前用户未发布博客！输入任意键返回！");
                 Scanner scanner = new Scanner(System.in);
@@ -38,8 +40,6 @@ public class ListUpdate extends BasePage {
                 WritePage writePage = new WritePage();
                 writePage.printPage(currentUser);
             }
-            List<Article> filteredArticles = Arrays.stream(articles).filter(article -> Objects.equals(article.getAuthor(), currentUser.getUsername())).collect(Collectors.toList());
-            Article[] filteredArray = filteredArticles.toArray(new Article[0]);
             for (int i = 0; i < filteredArray.length; i++) {
                 System.out.println(i + 1 + ". " + filteredArray[i].getTitle());
             }

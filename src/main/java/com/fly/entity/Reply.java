@@ -9,8 +9,8 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CommentChild {
+public class Reply {
     private String content;
-    private User user;
-    private Date date;
+    private String username;
+    private Date replyDate;
 }

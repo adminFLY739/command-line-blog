@@ -26,6 +26,7 @@ public class Detail extends BasePage {
             for (int i = 0; i < article.getComments().size(); i++) {
                 System.out.println(article.getComments().get(i).getUsername() + ": " + article.getComments().get(i).getContent());
                 System.out.println(article.getComments().get(i).getCommentDate());
+                System.out.println();
             }
             System.out.println();
             System.out.println("输入任意键返回！");

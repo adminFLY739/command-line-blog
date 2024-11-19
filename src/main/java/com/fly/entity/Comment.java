@@ -15,17 +15,18 @@ public class Comment {
     private String username;
     private String content;
     private Date commentDate;
+    private List<Reply> replies;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Comment comment = (Comment) o;
-        return Objects.equals(username, comment.username) && Objects.equals(content, comment.content) && Objects.equals(commentDate, comment.commentDate);
+        return Objects.equals(username, comment.username) && Objects.equals(content, comment.content) && Objects.equals(commentDate, comment.commentDate) && Objects.equals(replies, comment.replies);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(username, content, commentDate);
+        return Objects.hash(username, content, commentDate, replies);
     }
 }
