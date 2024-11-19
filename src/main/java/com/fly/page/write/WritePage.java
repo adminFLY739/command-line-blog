@@ -30,12 +30,14 @@ public class WritePage extends BasePage {
                     Add add = new Add();
                     add.printPage(currentUser);
                 } else if (Objects.equals(choice, "2")) {
-                    ListOfArticle list = new ListOfArticle();
+                    ListDetail list = new ListDetail();
                     list.printPage(currentUser);
                 } else if (Objects.equals(choice, "3")) {
-                    // todo
+                    ListUpdate update = new ListUpdate();
+                    update.printPage(currentUser);
                 } else if (Objects.equals(choice, "4")) {
-                    // todo
+                    ListDelete delete = new ListDelete();
+                    delete.printPage(currentUser);
                 } else if (Objects.equals(choice, "5")) {
                     System.out.println("正在返回首页！");
                     Thread.sleep(1000);
