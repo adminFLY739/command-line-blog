@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 @Data
 @AllArgsConstructor
@@ -14,4 +15,17 @@ public class Comment {
     private String username;
     private String content;
     private Date commentDate;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Comment comment = (Comment) o;
+        return Objects.equals(username, comment.username) && Objects.equals(content, comment.content) && Objects.equals(commentDate, comment.commentDate);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(username, content, commentDate);
+    }
 }
