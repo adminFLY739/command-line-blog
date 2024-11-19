@@ -45,11 +45,17 @@ public class CommentDetail extends BasePage {
             System.out.println("创作时间：" + filteredArray[parsedIndex].getCreateDate());
             System.out.println();
             System.out.println("评论区：");
-            System.out.println();
             for (int i = 0; i < filteredArray[parsedIndex].getComments().size(); i++) {
-                System.out.println("序号：" + i + 1);
+                System.out.println();
+                System.out.println("第" + (i + 1) + "条评论");
                 System.out.println(filteredArray[parsedIndex].getComments().get(i).getUsername() + ": " + filteredArray[parsedIndex].getComments().get(i).getContent());
                 System.out.println(filteredArray[parsedIndex].getComments().get(i).getCommentDate());
+                for (int j = 0; j < filteredArray[parsedIndex].getComments().get(i).getReplies().size(); j++) {
+                    System.out.print("  |--");
+                    System.out.println(filteredArray[parsedIndex].getComments().get(i).getReplies().get(j).getUsername() + ": " + filteredArray[parsedIndex].getComments().get(i).getReplies().get(j).getContent());
+                    System.out.print("     ");
+                    System.out.println(filteredArray[parsedIndex].getComments().get(i).getReplies().get(j).getReplyDate());
+                }
             }
             System.out.println();
             System.out.println("1. 评论");
@@ -66,7 +72,7 @@ public class CommentDetail extends BasePage {
                     CommentDetail commentPage = new CommentDetail();
                     commentPage.printPage(currentUser, parsedIndex);
                 }
-                Comment commentTemp = new Comment(currentUser.getUsername() == null ? "匿名用户" : currentUser.getUsername(), scannerComment, new Date(), null);
+                Comment commentTemp = new Comment(currentUser.getUsername() == null ? "匿名用户" : currentUser.getUsername(), scannerComment, new Date());
                 filteredArray[parsedIndex].getComments().add(commentTemp);
                 FileWriter fileWriter = new FileWriter(filePath);
                 gson.toJson(articles, fileWriter);
@@ -97,8 +103,8 @@ public class CommentDetail extends BasePage {
                             fileWriter.flush();
                             System.out.println("回复成功！");
                             Thread.sleep(1000);
-                            ViewPage viewPage = new ViewPage();
-                            viewPage.printPage(currentUser);
+                            CommentDetail commentPage = new CommentDetail();
+                            commentPage.printPage(currentUser, parsedIndex);
                         }
                     } else {
                         System.out.println("输入无效，请检查输入内容！");

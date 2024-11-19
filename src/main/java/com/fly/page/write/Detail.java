@@ -22,11 +22,16 @@ public class Detail extends BasePage {
             System.out.println("创作时间：" + article.getCreateDate());
             System.out.println();
             System.out.println("评论区：");
-            System.out.println();
             for (int i = 0; i < article.getComments().size(); i++) {
+                System.out.println();
                 System.out.println(article.getComments().get(i).getUsername() + ": " + article.getComments().get(i).getContent());
                 System.out.println(article.getComments().get(i).getCommentDate());
-                System.out.println();
+                for (int j = 0; j < article.getComments().get(i).getReplies().size(); j++) {
+                    System.out.print("  |--");
+                    System.out.println(article.getComments().get(i).getReplies().get(j).getUsername() + ": " + article.getComments().get(i).getReplies().get(j).getContent());
+                    System.out.print("     ");
+                    System.out.println(article.getComments().get(i).getReplies().get(j).getReplyDate());
+                }
             }
             System.out.println();
             System.out.println("输入任意键返回！");

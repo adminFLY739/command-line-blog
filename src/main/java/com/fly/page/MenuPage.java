@@ -23,11 +23,11 @@ public class MenuPage extends BasePage {
                 System.out.println("当前无用户登录");
             }
             System.out.println();
-            System.out.println("1️⃣. 登录");
-            System.out.println("2️⃣. 注册");
-            System.out.println("3️⃣. 创作管理");
-            System.out.println("4️⃣. 文章浏览");
-            System.out.println("5️⃣. 退出系统");
+            System.out.println("1️⃣登录");
+            System.out.println("2️⃣注册");
+            System.out.println("3️⃣创作管理");
+            System.out.println("4️⃣文章浏览");
+            System.out.println("5️⃣退出系统");
             System.out.println("请输入您的操作: ");
             Scanner scanner = new Scanner(System.in);
             String choice = scanner.nextLine();
