@@ -17,10 +17,10 @@ public class ViewPage extends BasePage {
     public void printPage(User currentUser) {
         ClearScreen.clear();
         System.out.println("---------------------------------");
-        System.out.println("----          博客          ----");
+        System.out.println("----          博客           ----");
         System.out.println("---------------------------------");
         if (currentUser.getUsername() == null) {
-            System.out.println("当前登录用户：" + "匿名用户");
+            System.out.println("当前登录用户：" + "游客");
         } else {
             System.out.println("当前登录用户：" + currentUser.getUsername());
         }
@@ -46,7 +46,8 @@ public class ViewPage extends BasePage {
                 System.out.println(i + 1 + ". " + filteredArray[i].getTitle());
             }
             System.out.println();
-            System.out.println("输入对应序号进行评论！输入#键返回！");
+            System.out.println("输入对应序号进行评论！");
+            System.out.println("#️⃣键返回！");
             Scanner scanner = new Scanner(System.in);
             String index = scanner.nextLine();
             if (Objects.equals(index, "#")) {

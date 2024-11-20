@@ -19,7 +19,7 @@ public class ListUpdate extends BasePage {
     public void printPage(User currentUser) {
         ClearScreen.clear();
         System.out.println("---------------------------------");
-        System.out.println("----         更新博客         ----");
+        System.out.println("----         更改博客         ----");
         System.out.println("---------------------------------");
         System.out.println("当前登录用户：" + currentUser.getUsername());
         System.out.println();
@@ -44,7 +44,8 @@ public class ListUpdate extends BasePage {
                 System.out.println(i + 1 + ". " + filteredArray[i].getTitle());
             }
             System.out.println();
-            System.out.println("输入对应序号更改博客！输入#键返回！");
+            System.out.println("输入对应序号更改博客！");
+            System.out.println("#️⃣键返回！");
             Scanner scanner = new Scanner(System.in);
             String index = scanner.nextLine();
             if (Objects.equals(index, "#")) {

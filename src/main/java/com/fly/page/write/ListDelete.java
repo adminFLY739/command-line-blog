@@ -40,7 +40,8 @@ public class ListDelete extends BasePage {
                 System.out.println(i + 1 + ". " + filteredArray[i].getTitle());
             }
             System.out.println();
-            System.out.println("输入对应序号删除博客！输入#键返回！");
+            System.out.println("输入对应序号删除博客！");
+            System.out.println("输入#️⃣键返回！");
             Scanner scanner = new Scanner(System.in);
             String index = scanner.nextLine();
             if (Objects.equals(index, "#")) {

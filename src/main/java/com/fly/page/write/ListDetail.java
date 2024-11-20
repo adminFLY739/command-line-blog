@@ -40,7 +40,8 @@ public class ListDetail extends BasePage {
                 System.out.println(i + 1 + ". " + filteredArray[i].getTitle());
             }
             System.out.println();
-            System.out.println("输入对应序号查看博客内容！输入#键返回！");
+            System.out.println("输入对应序号查看博客内容！");
+            System.out.println("#️⃣键返回！");
             Scanner scanner = new Scanner(System.in);
             String index = scanner.nextLine();
             if (Objects.equals(index, "#")) {

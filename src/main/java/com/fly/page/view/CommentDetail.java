@@ -27,7 +27,7 @@ public class CommentDetail extends BasePage {
         System.out.println("----         评论博客         ----");
         System.out.println("---------------------------------");
         if (currentUser.getUsername() == null) {
-            System.out.println("当前登录用户：" + "匿名用户");
+            System.out.println("当前登录用户：" + "游客");
         } else {
             System.out.println("当前登录用户：" + currentUser.getUsername());
         }
@@ -58,9 +58,9 @@ public class CommentDetail extends BasePage {
                 }
             }
             System.out.println();
-            System.out.println("1. 评论");
-            System.out.println("2. 回复");
-            System.out.println("输入#返回博客列表");
+            System.out.println("1️⃣评论");
+            System.out.println("2️⃣回复");
+            System.out.println("#️⃣返回博客列表");
             Scanner scanner = new Scanner(System.in);
             String input = scanner.nextLine();
             if (Objects.equals(input, "1")) {
@@ -72,7 +72,7 @@ public class CommentDetail extends BasePage {
                     CommentDetail commentPage = new CommentDetail();
                     commentPage.printPage(currentUser, parsedIndex);
                 }
-                Comment commentTemp = new Comment(currentUser.getUsername() == null ? "匿名用户" : currentUser.getUsername(), scannerComment, new Date());
+                Comment commentTemp = new Comment(currentUser.getUsername() == null ? "游客" : currentUser.getUsername(), scannerComment, new Date());
                 filteredArray[parsedIndex].getComments().add(commentTemp);
                 FileWriter fileWriter = new FileWriter(filePath);
                 gson.toJson(articles, fileWriter);
@@ -96,7 +96,7 @@ public class CommentDetail extends BasePage {
                             commentPage.printPage(currentUser, parsedIndex);
                         } else {
                             List<Reply> replyList = filteredArray[parsedIndex].getComments().get(replyIndex).getReplies();
-                            replyList.add(new Reply(scannerReplyComment, currentUser.getUsername() == null ? "匿名用户" : currentUser.getUsername(), new Date()));
+                            replyList.add(new Reply(scannerReplyComment, currentUser.getUsername() == null ? "游客" : currentUser.getUsername(), new Date()));
                             filteredArray[parsedIndex].getComments().get(replyIndex).setReplies(replyList);
                             FileWriter fileWriter = new FileWriter(filePath);
                             gson.toJson(filteredArray, fileWriter);

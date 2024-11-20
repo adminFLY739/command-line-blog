@@ -18,11 +18,11 @@ public class WritePage extends BasePage {
                 System.out.println("---------------------------------");
                 System.out.println("当前登录用户：" + currentUser.getUsername());
                 System.out.println();
-                System.out.println("1. 发布");
-                System.out.println("2. 查看");
-                System.out.println("3. 更新");
-                System.out.println("4. 删除");
-                System.out.println("5. 返回");
+                System.out.println("1️⃣发布");
+                System.out.println("2️⃣查看");
+                System.out.println("3️⃣更新");
+                System.out.println("4️⃣删除");
+                System.out.println("5️⃣返回");
                 System.out.println("请输入您的操作: ");
                 Scanner scanner = new Scanner(System.in);
                 String choice = scanner.nextLine();

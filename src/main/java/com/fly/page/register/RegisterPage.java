@@ -22,6 +22,8 @@ public class RegisterPage extends BasePage {
         System.out.println("---------------------------------");
         System.out.println("----         博客注册         ----");
         System.out.println("---------------------------------");
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+        String passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?]).{8,}$";
         Scanner scanner = new Scanner(System.in);
         System.out.println("请输入用户名：");
         String inputUsername = scanner.nextLine();
@@ -29,6 +31,22 @@ public class RegisterPage extends BasePage {
         String inputPassword = scanner.nextLine();
         System.out.println("请输入邮箱：");
         String inputEmail = scanner.nextLine();
+        try {
+            if (!inputEmail.matches(emailRegex)) {
+                System.out.println("邮箱格式不正确！");
+                Thread.sleep(1000);
+                MenuPage menuPage = new MenuPage();
+                menuPage.printPage(currentUser);
+            }
+            if (!inputPassword.matches(passwordRegex)) {
+                System.out.println("密码不符合要求！请确保密码至少8个字符，包含大小写字母、数字和特殊字符。");
+                Thread.sleep(1000);
+                MenuPage menuPage = new MenuPage();
+                menuPage.printPage(currentUser);
+            }
+        } catch (InterruptedException e) {
+            System.out.println(e.getMessage());
+        }
         User newUser = new User(inputUsername, inputPassword, inputEmail);
         String filePath = "src/main/resources/user.json";
         try {
